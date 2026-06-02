@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>love calculator</title>
+    <link rel="stylesheet" href="love.css">
+
+
+
+
+</head>
+<body>
+    <div class="cc">
+ <h1> love calculator</h1>
+
+<h3>calculate your love</h3>
+<div class="name">    
+<input type="text" id="yourName" placeholder="👤your name" >❤️ 
+<input type="text" id="partnerName" placeholder="👤your partner name">
+</div>
+
+<button id="cal">❤️   calculate   ❤️</button>
+
+
+<div class="result-box">
+    <div id="result">
+        ❤️ Waiting for Result ❤️
+    </div>
+</div>
+
+<script>
+let button = document.getElementById("cal");
+let result = document.getElementById("result");
+
+button.onclick = function() {
+
+    let yourName = document.getElementById("yourName").value;
+    let partnerName = document.getElementById("partnerName").value;
+
+    if (yourName === "" || partnerName === "") {
+        result.innerHTML = "Please enter both names ❤️";
+        return;
+    }
+
+    let totalLength = yourName.length + partnerName.length;
+
+    let loveScore = (totalLength * 7) % 100;
+
+    if (loveScore === 0) {
+        loveScore = 100;
+    }
+
+    result.innerHTML =
+        " " + yourName + " ❤️ " + partnerName +
+        "<br><br>Love Score: " + loveScore + "%";
+        let message = "";
+
+if (loveScore > 90) {
+    message = "❤️ Perfect Match!";
+}
+else if (loveScore > 70) {
+    message = "💕 Great Match!";
+}
+else if (loveScore > 50) {
+    message = "😊 Good Connection!";
+}
+else if (loveScore > 30) {
+    message = "😅 Just Friends!";
+}
+else {
+    message = "🤝 Better as Friends!";
+}
+
+};
+</script>
+</body>
+</html>
